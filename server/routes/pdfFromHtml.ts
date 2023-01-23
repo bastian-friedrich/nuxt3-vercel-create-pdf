@@ -1,9 +1,11 @@
+import chrome from 'chrome-aws-lambda'
 import puppeteer from 'puppeteer';
+import { getChromeOptions } from '~/utils/chrome';
 
 export default defineEventHandler(async () => {
   const html = await useStorage().getItem('assets:server:template.html');
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch(await getChromeOptions(chrome));
 
   const page = await browser.newPage();
 
