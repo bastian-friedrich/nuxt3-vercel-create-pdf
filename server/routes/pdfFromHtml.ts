@@ -1,26 +1,34 @@
 import puppeteer from 'puppeteer';
+import chrome from 'chrome-aws-lambda';
 
 export default defineEventHandler(async () => {
-    const html = await useStorage().getItem('assets:server:template.html');
-  
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+  const html = await useStorage().getItem('assets:server:template.html');
 
-    //  Add content
-    await page.setContent(html, { waitUntil: 'domcontentloaded' });
+  const browser = await puppeteer.launch({
+    args: [...chrome.args, '--hide-scrollbars', '--disable-web-security'],
+    defaultViewport: chrome.defaultViewport,
+    executablePath: await chrome.executablePath,
+    headless: true,
+    ignoreHTTPSErrors: true,
+  });
 
-    //  Set screen instead of print css
-    // await page.emulateMediaType('screen');
+  const page = await browser.newPage();
 
-    //  Create pdf
-    const pdf = await page.pdf({
-      margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
-      printBackground: true,
-      format: 'A4',
-    });
-  
-    // Close the browser instance
-    await browser.close();
+  //  Add content
+  await page.setContent(html, { waitUntil: 'domcontentloaded' });
 
-    return pdf;
+  //  Set screen instead of print css
+  // await page.emulateMediaType('screen');
+
+  //  Create pdf
+  const pdf = await page.pdf({
+    margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
+    printBackground: true,
+    format: 'A4',
+  });
+
+  // Close the browser instance
+  await browser.close();
+
+  return pdf;
 })

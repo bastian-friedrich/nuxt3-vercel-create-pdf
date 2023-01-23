@@ -8,9 +8,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.0.0"
+    "nuxt": "^3.0.0",
+    "puppeteer": "^19.5.2"
   },
   "dependencies": {
-    "puppeteer": "^19.5.2"
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer": "^19.5.2",
+    "vite-plugin-require": "^1.1.10"
   }
 }
