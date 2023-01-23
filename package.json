@@ -11,6 +11,7 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
-    "pdf-creator-node": "^2.3.5"
+    "pdf-creator-node": "^2.3.5",
+    "phantomjs": "^2.1.7"
   }
 }
