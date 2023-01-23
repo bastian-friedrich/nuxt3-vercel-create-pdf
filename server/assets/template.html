@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world!</title>
+    <style type="text/css">
+      ul {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User List</h1>
+    <ul>
+      {{#each users}}
+      <li>Name: {{this.name}}</li>
+      <li>Age: {{this.age}}</li>
+      <br />
+      {{/each}}
+    </ul>
+  </body>
+</html>
