@@ -7,5 +7,8 @@ export const getChromeOptions = async (chrome:any) => {
         };
     }
 
-    return {}
+    return {
+        args: [],
+        headless: true
+    }
 };
