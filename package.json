@@ -4,7 +4,7 @@
     "node": "^14"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "node -v && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
