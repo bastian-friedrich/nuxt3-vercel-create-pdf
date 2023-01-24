@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "nuxt3-create-pdf",
   "engines": {
     "node": "^14"
   },
