@@ -1,9 +1,6 @@
 {
   "private": true,
   "name": "nuxt3-create-pdf",
-  "engines": {
-    "node": "^16"
-  },
   "scripts": {
     "build": "node -v && nuxt build",
     "dev": "nuxt dev",
