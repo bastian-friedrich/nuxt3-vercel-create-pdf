@@ -9,9 +9,11 @@ export default defineEventHandler(async () => {
   const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
   
   const browser = await puppeteer.launch({
+    args: [...edgeChromium.args, "--hide-scrollbars", "--disable-web-security"],
+    defaultViewport: edgeChromium.defaultViewport,
     executablePath,
-    args: edgeChromium.args,
     headless: true,
+    ignoreHTTPSErrors: true,
   });
 
   const page = await browser.newPage();
