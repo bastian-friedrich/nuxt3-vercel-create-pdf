@@ -2,7 +2,7 @@
   "private": true,
   "name": "nuxt3-create-pdf",
   "engines": {
-    "node": "^14"
+    "node": "^16"
   },
   "scripts": {
     "build": "node -v && nuxt build",
@@ -16,7 +16,6 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^6",
-    "puppeteer-core": "^6"
+    "puppeteer": "^19.6.0"
   }
 }
