@@ -1,11 +1,18 @@
 import edgeChromium from 'chrome-aws-lambda';
 import puppeteer from 'puppeteer-core';
-import { getChromeOptions } from '~/utils/chrome';
+
+const LOCAL_CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 export default defineEventHandler(async () => {
   const html = await useStorage().getItem('assets:server:template.html');
 
-  const browser = await puppeteer.launch(await getChromeOptions(edgeChromium));
+  const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
+  
+  const browser = await puppeteer.launch({
+    executablePath,
+    args: edgeChromium.args,
+    headless: true,
+  });
 
   const page = await browser.newPage();
 
