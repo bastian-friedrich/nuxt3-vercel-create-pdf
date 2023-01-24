@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=14 <15"
+    "node": "14.x"
   },
   "scripts": {
     "build": "nuxt build",
@@ -14,7 +14,7 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
-    "chrome-aws-lambda": "6.0.0",
-    "puppeteer-core": "6.0.0"
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
   }
 }
